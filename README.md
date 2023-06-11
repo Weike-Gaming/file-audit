@@ -11,7 +11,7 @@ Check for files that are not suppose to be Merged
 ## Example usage
 
 ```yaml
-uses: weike-gaming/file-audit@version
+uses: Weike-Gaming/file-audit@8c66cd0497e45ddf41a902e7bc82c8487127b984
 with:
   files-to-check:  ["AM_Mixer"]
 ```
