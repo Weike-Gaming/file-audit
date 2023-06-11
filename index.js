@@ -13,26 +13,20 @@ function findSimilarValues(array1, array2) {
 
 try { 
     const changesInput = core.getInput('github-output');
-    console.log(`Changes : ${changesInput}`); 
+    
     let changes = changesInput.split(" ");
     let filenames;
 
     for(let i = 0; i < changes.length; i++){
         filenames = changes[i].replace(/^.*[\\\/]/, '');
-        console.log(`File Names : ${filenames}`); 
+        console.log(`Changes File Names : ${filenames}`); 
     }
 
     const auditFilesInput = core.getInput('files-to-check');
     const auditFiles = auditFilesInput.split(" ");
-
-    for (let i = 0; i < auditFiles.length; i++) {
-        const element = auditFiles[i];
-        console.log(`element : ${element}`);   
-    }
-
+ 
     const similar = findSimilarValues(changes, auditFiles);
-    const combined = similar.join(' ');
-    console.log(`combined : ${combined}`);   
+    const combined = similar.join(' '); 
 
     if(similar.length > 0) {
         core.setFailed(combined);
