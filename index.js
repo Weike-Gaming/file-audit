@@ -32,6 +32,7 @@ try {
 
     const similar = findSimilarValues(filenames, auditFiles);
     const combined = similar.join(' ');
+    console.log(`combined : ${combined}`);   
 
     if(similar.length > 0) {
         core.setFailed(combined);
