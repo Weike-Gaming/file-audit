@@ -15,7 +15,7 @@ try {
     const changesInput = core.getInput('github-output');
     
     let changes = changesInput.split(" ");
-    let filenames;
+    let filenames= [];
 
     for(let i = 0; i < changes.length; i++){
         filenames[i] = changes[i].replace(/^.*[\\\/]/, ''); 
