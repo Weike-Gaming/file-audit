@@ -1,0 +1,10 @@
+name: 'File Audit'
+description: 'Audit file during PR to make sure some files'
+inputs:
+  files-to-check:  # Array of files to check for 
+    description: 'Check Files'
+    required: true
+    default: [] 
+runs:
+  using: 'node16'
+  main: 'index.js'
