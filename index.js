@@ -18,17 +18,16 @@ try {
     let filenames;
 
     for(let i = 0; i < changes.length; i++){
-        filenames = changes[i].replace(/^.*[\\\/]/, '');
-        console.log(`Changes File Names : ${filenames}`); 
+        filenames[i] = changes[i].replace(/^.*[\\\/]/, ''); 
     }
 
     const auditFilesInput = core.getInput('files-to-check');
     const auditFiles = auditFilesInput.split(" ");
  
-    const similar = findSimilarValues(changes, auditFiles);
-    const combined = similar.join(' '); 
+    const similar = findSimilarValues(filenames, auditFiles);
 
     if(similar.length > 0) {
+        const combined = similar.join(' '); 
         core.setFailed(combined);
     }
 } catch (error) {
