@@ -30,7 +30,7 @@ try {
         console.log(`element : ${element}`);   
     }
 
-    const similar = findSimilarValues(filenames, auditFiles);
+    const similar = findSimilarValues(changes, auditFiles);
     const combined = similar.join(' ');
     console.log(`combined : ${combined}`);   
 
