@@ -25,16 +25,17 @@ try {
     const auditFilesInput = core.getInput('files-to-check');
     const auditFiles = auditFilesInput.split(" ");
 
+    for (let i = 0; i < auditFiles.length; i++) {
+        const element = auditFiles[i];
+        console.log(`element : ${element}`);   
+    }
+
     const similar = findSimilarValues(filenames, auditFiles);
     const combined = similar.join(' ');
 
     if(similar.length > 0) {
         core.setFailed(combined);
     }
-
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`);
 } catch (error) {
     core.setFailed(error.message);
 }
