@@ -1,6 +1,9 @@
 name: 'File Audit'
 description: 'Audit file during PR to make sure some files'
 inputs:
+  github-output: 
+    description: 'Output from checkout'
+    required: true
   files-to-check:  # Array of files to check for 
     description: 'Check Files'
     required: true
