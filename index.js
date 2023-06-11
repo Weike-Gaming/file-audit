@@ -2,8 +2,15 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try { 
-    const changes = core.getInput('github-output');
-    console.log(`Changes ${changes}!`); 
+    const changesInput = core.getInput('github-output');
+    console.log(`Changes : ${changesInput}`); 
+    let changes = changesInput.split(" ");
+    let filenames;
+
+    for(let i = 0; i < changes.length; i++){
+        filenames = changes[i].replace(/^.*[\\\/]/, '');
+        console.log(`File Names : ${filenames}`); 
+    }
 
     const auditFiles = core.getInput('files-to-check');
     console.log(`Hello ${auditFiles}!`); 
