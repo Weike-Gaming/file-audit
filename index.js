@@ -26,8 +26,9 @@ try {
     const auditFiles = auditFilesInput.split(" ");
 
     const similar = findSimilarValues(filenames, auditFiles);
+    const combined = similar.join(' ');
+
     if(similar.length > 0) {
-        const combined = similar.join(' ');
         core.setFailed(combined);
     }
 
